@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { Example } from '../components/example';
 
+// eslint-disable-next-line max-lines-per-function
 export default function Home() {
   return (
     <div className={styles.container}>
