@@ -1,6 +1,12 @@
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
-  extends : ['eslint-config-airbnb-typescript', 'plugin:tailwind/recommended', 'next', 'next/core-web-vitals', 'prettier'],
+  extends: [
+    'eslint-config-airbnb-typescript',
+    'plugin:tailwind/recommended',
+    'next',
+    'next/core-web-vitals',
+    'prettier',
+  ],
   rules: {
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
@@ -13,4 +19,4 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-}
+};
