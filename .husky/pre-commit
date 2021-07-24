@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn workspaces run lint-staged
+# FIXME: Run my-app lint-staged
+# yarn run workspaces lint-staged
