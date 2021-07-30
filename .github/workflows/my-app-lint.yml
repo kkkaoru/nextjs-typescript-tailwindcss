@@ -20,5 +20,5 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn
-      - run: yarn workspaces run eslint
-      - run: yarn workspaces run prettier
+      - run: yarn workspace my-app eslint
+      - run: yarn workspace my-app prettier
