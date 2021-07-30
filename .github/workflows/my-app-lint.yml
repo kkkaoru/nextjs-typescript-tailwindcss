@@ -1,4 +1,4 @@
-name: Run lint
+name: Run my-app's lint
 on: [workflow_dispatch, push]
 jobs:
   Lint:
