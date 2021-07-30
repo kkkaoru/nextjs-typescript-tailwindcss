@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Not using Zero-Installs when yarn berry
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
