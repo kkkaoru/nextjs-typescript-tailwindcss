@@ -1,4 +1,4 @@
-name: Run web-client's test
+name: Run web-client's tsc
 on: [workflow_dispatch, push]
 jobs:
   Lint:
