@@ -1,5 +1,8 @@
-name: Run web-client's tsc
-on: [workflow_dispatch, push]
+name: Web-client check types
+on:
+  push:
+    paths:
+      - "packages/web-client/**"
 jobs:
   Lint:
     runs-on: ubuntu-20.04

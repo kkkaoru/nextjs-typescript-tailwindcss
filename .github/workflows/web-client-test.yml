@@ -1,5 +1,8 @@
-name: Run web-client's test
-on: [workflow_dispatch, push]
+name: Web-client test
+on:
+  push:
+    paths:
+      - "packages/web-client/**"
 jobs:
   Lint:
     runs-on: ubuntu-20.04
