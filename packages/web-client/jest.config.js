@@ -15,6 +15,11 @@ module.exports = {
             syntax: 'typescript',
             tsx: true,
           },
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
         },
       },
     ],
