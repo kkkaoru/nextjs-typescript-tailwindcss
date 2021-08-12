@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { Example } from '@/components/example';
 
-describe('Example', () => {
+describe('example', () => {
   it('should be matched snapshot', () => {
     const { asFragment } = render(< Example />, {});
     expect(asFragment()).toMatchSnapshot();
