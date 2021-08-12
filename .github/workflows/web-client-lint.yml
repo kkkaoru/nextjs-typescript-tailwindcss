@@ -1,4 +1,4 @@
-name: Run my-app's lint
+name: Run web-client's lint
 on: [workflow_dispatch, push]
 jobs:
   Lint:
@@ -20,5 +20,5 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn
-      - run: yarn workspace my-app eslint
-      - run: yarn workspace my-app prettier
+      - run: yarn workspace web-client eslint
+      - run: yarn workspace web-client prettier

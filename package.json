@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/kkkaoru/nextjs-typescript-tailwindcss#readme",
   "workspaces": [
-    "my-app"
+    "packages/*"
   ]
 }

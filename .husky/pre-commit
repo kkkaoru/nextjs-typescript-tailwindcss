@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn workspace my-app lint-staged
+yarn workspace web-client lint-staged
