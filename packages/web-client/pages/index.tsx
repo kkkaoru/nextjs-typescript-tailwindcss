@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Example } from '../components/example';
 
 // eslint-disable-next-line max-lines-per-function
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <div className={styles.container}>
       <Head>

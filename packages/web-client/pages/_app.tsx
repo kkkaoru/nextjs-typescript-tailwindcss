@@ -1,9 +1,9 @@
 import '../styles/globals.css';
 import 'tailwindcss/tailwind.css';
-
+import type { BaseContext } from 'next/dist/shared/lib/utils';
 import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): BaseContext {
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <Component {...pageProps} />;
 }

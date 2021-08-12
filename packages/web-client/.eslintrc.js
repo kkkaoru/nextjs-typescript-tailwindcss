@@ -1,7 +1,10 @@
 /** @type import('eslint').Linter.BaseConfig */
 module.exports = {
   extends: [
-    'eslint-config-airbnb-typescript',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:tailwind/recommended',
     'next',
     'next/core-web-vitals',
