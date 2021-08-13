@@ -5,7 +5,10 @@
 		},
 		{
 			"path": "packages/web-client"
-		}
+		},
+		{
+			"path": "packages/web-components"
+		},
 	],
 	"settings": {}
 }
