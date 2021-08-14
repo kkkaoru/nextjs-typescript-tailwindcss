@@ -6,13 +6,13 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
+    '@storybook/addon-actions',
     '@storybook/addon-essentials',
   ],
   core: {
     builder: 'storybook-builder-vite',
   },
   /**
-   * 
    * @param {import('vite').ResolvedConfig} config
    * @returns {import('vite').ResolvedConfig}
    */
