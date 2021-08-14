@@ -32,6 +32,12 @@ module.exports = {
       'process.env' : {},
       'global': {},
     };
+    // ESbuild is not supported jsx automatic runtime.
+    // https://github.com/evanw/esbuild/issues/334
+    /** @type {import('vite').ESBuildOptions} */
+    config.esbuild = {
+      jsxInject: `import React from 'react';`,
+    }
     return config;
   },
 };
