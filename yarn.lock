@@ -2740,6 +2740,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-links@npm:^6.3.7":
+  version: 6.3.7
+  resolution: "@storybook/addon-links@npm:6.3.7"
+  dependencies:
+    "@storybook/addons": 6.3.7
+    "@storybook/client-logger": 6.3.7
+    "@storybook/core-events": 6.3.7
+    "@storybook/csf": 0.0.1
+    "@storybook/router": 6.3.7
+    "@types/qs": ^6.9.5
+    core-js: ^3.8.2
+    global: ^4.4.0
+    prop-types: ^15.7.2
+    qs: ^6.10.0
+    regenerator-runtime: ^0.13.7
+    ts-dedent: ^2.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: b83d27c44585e62419bd86874dbe296ef69d6da6a7e9b559143b19724f56a0df6eda833e5cea1ac3568a316d4c9b2010e1ab79975c523f4c1fb8be576ffefdce
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-measure@npm:^2.0.0":
   version: 2.0.0
   resolution: "@storybook/addon-measure@npm:2.0.0"
@@ -2796,7 +2824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-viewport@npm:6.3.7":
+"@storybook/addon-viewport@npm:6.3.7, @storybook/addon-viewport@npm:^6.3.7":
   version: 6.3.7
   resolution: "@storybook/addon-viewport@npm:6.3.7"
   dependencies:
@@ -17457,7 +17485,9 @@ typescript@4.3.5:
     "@storybook/addon-actions": ^6.3.7
     "@storybook/addon-docs": ^6.3.7
     "@storybook/addon-essentials": ^6.3.7
+    "@storybook/addon-links": ^6.3.7
     "@storybook/addon-postcss": ^2.0.0
+    "@storybook/addon-viewport": ^6.3.7
     "@storybook/react": ^6.3.7
     "@types/tailwindcss": ^2.2.1
     autoprefixer: ^10.3.1
