@@ -38,7 +38,7 @@ module.exports = {
     config.resolve.alias = [
       {
         find: '@/',
-        replacement: `${__dirname}/../`,
+        replacement: `${__dirname}/../src/`,
       },
     ];
     return config;
