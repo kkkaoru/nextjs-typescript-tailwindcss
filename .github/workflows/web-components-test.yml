@@ -1,8 +1,9 @@
-name: Web-client test
+name: Web-components test
 on:
   push:
     paths:
-      - "packages/web-client/**"
+      - ".github/workflows/web-components-*.yml"
+      - "packages/web-components/**"
 jobs:
   Test:
     runs-on: ubuntu-20.04

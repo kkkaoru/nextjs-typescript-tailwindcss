@@ -1,10 +1,11 @@
-name: Web-client check types
+name: Web-components lint
 on:
   push:
     paths:
-      - "packages/web-client/**"
+      - ".github/workflows/web-components-*.yml"
+      - "packages/web-components/**"
 jobs:
-  Tsc:
+  Lint:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -25,4 +26,5 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn
-      - run: yarn workspace web-components tsc
+      - run: yarn workspace web-components eslint
+      - run: yarn workspace web-components prettier
