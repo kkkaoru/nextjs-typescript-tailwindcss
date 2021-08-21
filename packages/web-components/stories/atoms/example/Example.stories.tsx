@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { Example } from './Example';
+import { Example } from '@/src/atoms/example/Example';
 
 export default {
   title: 'Example/Text',

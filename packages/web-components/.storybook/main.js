@@ -1,6 +1,6 @@
 /** @type import('@storybook/core-common').StorybookConfig */
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-viewport',
     '@storybook/addon-links',
@@ -35,6 +35,12 @@ module.exports = {
     config.esbuild = {
       jsxInject: `import React from 'react';`,
     };
+    config.resolve.alias = [
+      {
+        find: '@/',
+        replacement: `${__dirname}/../`,
+      },
+    ];
     return config;
   },
 };
