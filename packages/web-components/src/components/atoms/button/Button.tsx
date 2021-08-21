@@ -5,11 +5,11 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 type ButtonSize = 'small' | 'medium' | 'large';
 
 export type Props = {
-  primary: boolean;
-  backgroundColor: string | undefined;
-  size: ButtonSize;
   label: string;
-  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  size?: ButtonSize;
+  primary?: boolean;
+  backgroundColor?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 } & ButtonProps;
 
 const buttonSizeClassNames = new Map<ButtonSize, string>([
@@ -22,11 +22,11 @@ const buttonSizeClassNames = new Map<ButtonSize, string>([
  * Primary UI component for user interaction
  */
 export const Button: React.VFC<Props> = ({
-  backgroundColor = undefined,
-  primary = false,
-  size = 'medium',
-  onClick = undefined,
   label,
+  size = 'medium',
+  primary = false,
+  backgroundColor,
+  onClick,
   ...buttonProps
 }): JSX.Element => {
   const buttonSizeClass = buttonSizeClassNames.get(size);

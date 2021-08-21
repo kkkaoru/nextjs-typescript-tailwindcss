@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`example should be matched snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#333] bg-transparent shadow-md"
+    type="button"
+  >
+    button
+  </button>
+</DocumentFragment>
+`;
