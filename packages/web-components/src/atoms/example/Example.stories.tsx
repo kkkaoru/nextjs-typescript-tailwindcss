@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import { Example } from './Example';
 
 export default {
@@ -5,6 +6,6 @@ export default {
   component: Example,
 };
 
-const Template = (args) => <Example {...args} />;
+const Template: Story = () => <Example />;
 
 export const ExampleTest = Template.bind({});

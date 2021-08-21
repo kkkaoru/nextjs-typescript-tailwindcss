@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import { Button } from './Button';
+import { Story, Meta } from '@storybook/react';
+import { Button, Props } from './Button';
 
 export default {
   title: 'Example/Button',
@@ -7,11 +8,12 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-};
+} as Meta;
 
-const Template = (args) => <Button onClick={action('button-click')} {...args} />;
+const Template: Story<Props> = (args) => <Button onClick={action('button-click')} {...args} />;
 
 export const Primary = Template.bind({});
+
 Primary.args = {
   primary: true,
   label: 'Button',

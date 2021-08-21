@@ -1,9 +1,6 @@
 /** @type import('@storybook/core-common').StorybookConfig */
 module.exports = {
-  stories: [
-    '../src/**/*.stories.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-viewport',
     '@storybook/addon-links',
@@ -16,9 +13,9 @@ module.exports = {
       options: {
         postcssLoaderOptions: {
           implementation: require('postcss'),
-        }
-      }
-    }
+        },
+      },
+    },
   ],
   core: {
     builder: 'storybook-builder-vite',
@@ -29,15 +26,15 @@ module.exports = {
    */
   async viteFinal(config) {
     config.define = {
-      'process.env' : {},
-      'global': {},
+      'process.env': {},
+      global: {},
     };
     // ESbuild is not supported jsx automatic runtime.
     // https://github.com/evanw/esbuild/issues/334
     /** @type {import('vite').ESBuildOptions} */
     config.esbuild = {
       jsxInject: `import React from 'react';`,
-    }
+    };
     return config;
   },
 };
