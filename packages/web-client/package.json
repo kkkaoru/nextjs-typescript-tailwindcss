@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint --max-warnings=0 --fix --ext .ts,.tsx .",
+    "eslint": "eslint --max-warnings=0 --fix --ext .ts,.tsx --resolve-plugins-relative-to .",
     "prettier": "prettier --write --check .",
     "lint-staged": "lint-staged",
     "tsc": "tsc --noEmit",

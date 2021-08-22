@@ -43,7 +43,7 @@ describe('Button', () => {
     render(
       <>
         <Button label="Default" />
-        <Button label="Primary" primary={true} />
+        <Button label="Primary" primary />
         <Button label="NotPrimary" primary={false} />
       </>,
     );

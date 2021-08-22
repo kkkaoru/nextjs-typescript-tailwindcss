@@ -29,7 +29,7 @@ export const Button: React.VFC<Props> = ({
   backgroundColor,
   onClick,
   ...buttonProps
-}): JSX.Element => {
+}: Props): JSX.Element => {
   const buttonSizeClass = buttonSizeClassNames.get(size);
   return (
     <button
