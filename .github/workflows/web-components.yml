@@ -33,6 +33,8 @@ jobs:
     needs: setup
     runs-on: ubuntu-20.04
     steps:
+      - uses: actions/checkout@v2
+      - run: ls
       - run: yarn workspace web-components eslint
   # formatter:
   #   needs: setup
