@@ -11,7 +11,8 @@
     "husky": "^7.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn workspace-all test",
+    "workspace-all": "yarn workspaces list | grep packages | awk -F/ '{print $2}' | xargs -I[] yarn workspace []",
     "prepare": "is-ci || husky install"
   },
   "repository": {

@@ -7,8 +7,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:tailwind/recommended',
-    'next',
-    'next/core-web-vitals',
     'plugin:jest/recommended',
     'prettier',
   ],
@@ -20,7 +18,29 @@ module.exports = {
     'max-lines': 'error',
     'max-depth': 'error',
     'max-lines-per-function': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'import/no-extraneous-dependencies': [
+      'off',
+      {
+        devDependencies: ['**/*.stories.tsx'],
+      },
+    ],
+    'import/no-anonymous-default-export': 'off',
   },
+  overrides: [
+    {
+      // Overwrite only test files
+      files: ['test/**/*.*'],
+      rules: {
+        'max-lines-per-function': [
+          'error',
+          {
+            max: 100,
+          },
+        ],
+      },
+    },
+  ],
   parserOptions: {
     project: './tsconfig.json',
   },
