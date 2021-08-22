@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-
       - name: Yarn install
         if: steps.cache_node_modules_and_yarn.outputs.cache-hit != 'true'
-        run: yarn --immutable
+        run: yarn
   lint:
     needs: setup
     runs-on: ubuntu-20.04
@@ -51,6 +51,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - run: yarn
       - run: yarn workspace web-components eslint
   # formatter:
   #   needs: setup
