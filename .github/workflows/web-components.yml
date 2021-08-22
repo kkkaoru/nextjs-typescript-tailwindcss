@@ -34,21 +34,21 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: yarn workspace web-components eslint
-  formatter:
-    needs: setup
-    runs-on: ubuntu-20.04
-    steps:
-      - run: yarn workspace web-components prettier
-  tsc:
-    needs: setup
-    runs-on: ubuntu-20.04
-    steps:
-      - run: yarn workspace web-components tsc
-  jest:
-    needs: setup
-    runs-on: ubuntu-20.04
-    steps:
-      - run: yarn workspace web-components test
-  test:
-    needs: ['lint', 'formatter', 'tsc', 'jest']
-    runs-on: ubuntu-20.04
+  # formatter:
+  #   needs: setup
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - run: yarn workspace web-components prettier
+  # tsc:
+  #   needs: setup
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - run: yarn workspace web-components tsc
+  # jest:
+  #   needs: setup
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - run: yarn workspace web-components test
+  # test:
+  #   needs: ['lint', 'formatter', 'tsc', 'jest']
+  #   runs-on: ubuntu-20.04
