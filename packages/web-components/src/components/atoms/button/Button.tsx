@@ -1,7 +1,5 @@
 import type { MouseEventHandler } from 'react';
 
-type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
-
 type ButtonSize = 'small' | 'medium' | 'large';
 
 export type Props = {
@@ -10,13 +8,16 @@ export type Props = {
   primary?: boolean;
   backgroundColor?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-} & ButtonProps;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const buttonSizeClassNames = new Map<ButtonSize, string>([
+export const buttonSizeClassNames = new Map<ButtonSize, string>([
   ['small', 'text-xs py-[10px] px-[16px]'],
   ['medium', 'text-base py-[11px] px-[20px]'],
   ['large', 'text-xl py-[12px] px-[24px]'],
 ]);
+
+export const defaultClassNames = 'text-[#333] bg-transparent shadow-md';
+export const primaryClassNames = 'text-[#fff] bg-[#1ea7fd]';
 
 /**
  * Primary UI component for user interaction
@@ -36,7 +37,7 @@ export const Button: React.VFC<Props> = ({
       className={[
         'font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none',
         `${buttonSizeClass ?? ''}`,
-        primary ? 'text-[#fff] bg-[#1ea7fd]' : 'text-[#333] bg-transparent shadow-md',
+        primary ? primaryClassNames : defaultClassNames,
       ].join(' ')}
       style={
         backgroundColor === undefined

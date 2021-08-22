@@ -28,6 +28,20 @@ module.exports = {
     ],
     'import/no-anonymous-default-export': 'off',
   },
+  overrides: [
+    {
+      // Overwrite only test files
+      files: ['test/**/*.*'],
+      rules: {
+        'max-lines-per-function': [
+          'error',
+          {
+            max: 100,
+          },
+        ],
+      },
+    },
+  ],
   parserOptions: {
     project: './tsconfig.json',
   },
