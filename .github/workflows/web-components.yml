@@ -34,7 +34,23 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - run: ls
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.2'
+      - name: Cache node_modules and .yarn
+        id: cache_node_modules_and_yarn
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: |
+            ~/.node_modules
+            ~/.yarn
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
       - run: yarn workspace web-components eslint
   # formatter:
   #   needs: setup
