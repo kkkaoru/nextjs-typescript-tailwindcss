@@ -5,54 +5,112 @@ on:
       - ".github/workflows/web-components.yml"
       - "packages/web-components/**"
 jobs:
-  setup:
-    runs-on: ubuntu-20.04
+  prepare-yarn-cache:
+    name: Prepare Cache
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: '16.6.2'
-      - name: Cache node_modules and .yarn
-        id: cache_node_modules_and_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        id: yarn-cache
         with:
-          path: |
-            ~/.node_modules
-            ~/.yarn
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/yarn.lock') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Yarn install
-        if: steps.cache_node_modules_and_yarn.outputs.cache-hit != 'true'
-        run: yarn
+            yarn-
+      - name: 'Check or update Yarn cache (fix w/ "yarn install")'
+        run: |
+          yarn install --immutable --skip-builds
+  yarn-validate:
+    name: Validate Yarn dependencies and constraints
+    needs: prepare-yarn-cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.2'
+      - name: 'Check for duplicate dependencies (fix w/ "yarn dedupe")'
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: |
+          yarn dedupe --check
   lint:
-    needs: setup
-    runs-on: ubuntu-20.04
+    name: Run lint
+    needs: prepare-yarn-cache
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js latest
+        uses: actions/setup-node@v2
         with:
           node-version: '16.6.2'
-      - name: Cache node_modules and .yarn
-        id: cache_node_modules_and_yarn
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
         with:
-          path: |
-            ~/.node_modules
-            ~/.yarn
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - run: yarn
-      - run: yarn workspace web-components eslint
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
+      - name: Run eslint
+        run: yarn workspace web-components eslint
+  # setup:
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '16.6.2'
+  #     - name: Cache node_modules and .yarn
+  #       id: cache_node_modules_and_yarn
+  #       uses: actions/cache@v2
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: |
+  #           ~/.node_modules
+  #           ~/.yarn
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-build-${{ env.cache-name }}-
+  #           ${{ runner.os }}-build-
+  #           ${{ runner.os }}-
+  #     - name: Yarn install
+  #       if: steps.cache_node_modules_and_yarn.outputs.cache-hit != 'true'
+  #       run: yarn
+  # lint:
+  #   needs: setup
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '16.6.2'
+  #     - name: Cache node_modules and .yarn
+  #       id: cache_node_modules_and_yarn
+  #       uses: actions/cache@v2
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: |
+  #           ~/.node_modules
+  #           ~/.yarn
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-build-${{ env.cache-name }}-
+  #           ${{ runner.os }}-build-
+  #           ${{ runner.os }}-
+  #     - run: yarn
+  #     - run: yarn workspace web-components eslint
   # formatter:
   #   needs: setup
   #   runs-on: ubuntu-20.04
