@@ -48,92 +48,76 @@ jobs:
           key: yarn-${{ hashFiles('yarn.lock') }}
       - name: Install
         run: yarn install
-      - name: Lint
+      - name: ESLint
         run: yarn workspace web-components eslint
-
-  # lint:
-  #   name: Run lint
-  #   needs: prepare-yarn-cache
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #     - name: Use Node.js latest
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '16.6.2'
-  #     - name: Get yarn cache directory path
-  #       id: yarn-cache-dir-path
-  #       run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-  #     - uses: actions/cache@v2
-  #       with:
-  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-  #         key: yarn-${{ hashFiles('yarn.lock') }}
-  #     - name: Run eslint
-  #       run: yarn workspace web-components eslint
-  # setup:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '16.6.2'
-  #     - name: Cache node_modules and .yarn
-  #       id: cache_node_modules_and_yarn
-  #       uses: actions/cache@v2
-  #       env:
-  #         cache-name: cache-node-modules
-  #       with:
-  #         path: |
-  #           ~/.node_modules
-  #           ~/.yarn
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/yarn.lock') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-build-${{ env.cache-name }}-
-  #           ${{ runner.os }}-build-
-  #           ${{ runner.os }}-
-  #     - name: Yarn install
-  #       if: steps.cache_node_modules_and_yarn.outputs.cache-hit != 'true'
-  #       run: yarn
-  # lint:
-  #   needs: setup
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '16.6.2'
-  #     - name: Cache node_modules and .yarn
-  #       id: cache_node_modules_and_yarn
-  #       uses: actions/cache@v2
-  #       env:
-  #         cache-name: cache-node-modules
-  #       with:
-  #         path: |
-  #           ~/.node_modules
-  #           ~/.yarn
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('yarn.lock') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-build-${{ env.cache-name }}-
-  #           ${{ runner.os }}-build-
-  #           ${{ runner.os }}-
-  #     - run: yarn
-  #     - run: yarn workspace web-components eslint
-  # formatter:
-  #   needs: setup
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - run: yarn workspace web-components prettier
-  # tsc:
-  #   needs: setup
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - run: yarn workspace web-components tsc
-  # jest:
-  #   needs: setup
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - run: yarn workspace web-components test
-  # test:
-  #   needs: ['lint', 'formatter', 'tsc', 'jest']
-  #   runs-on: ubuntu-20.04
+  formatter:
+    name: Formatter
+    needs: prepare-yarn-cache
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.2'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
+      - name: Install
+        run: yarn install
+      - name: Prettier
+        run: yarn workspace web-components prettier
+  tsc:
+    name: TypeScript compiler
+    needs: prepare-yarn-cache
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.2'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
+      - name: Install
+        run: yarn install
+      - name: Compile
+        run: yarn workspace web-components tsc
+  jest:
+    name: Jest
+    needs: prepare-yarn-cache
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.2'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
+      - name: Install
+        run: yarn install
+      - name: Jest
+        run: yarn workspace web-components test
+  test:
+    needs: ['lint', 'formatter', 'tsc', 'jest']
+    runs-on: ubuntu-20.04
+    steps:
+    - run: echo Done test jobs
