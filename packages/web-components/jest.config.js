@@ -8,23 +8,7 @@ module.exports = {
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   setupFilesAfterEnv: ['<rootDir>/test/jest-setup.ts'],
   transform: {
-    '^.+\\.(ts|tsx)$': [
-      '@swc/jest',
-      {
-        /** @type import('@swc/core/types').JscConfig */
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
-          },
-        },
-      },
-    ],
+    '^.+\\.(ts|tsx)$': '@swc/jest',
   },
   moduleNameMapper: {
     '~/(.*)$': '<rootDir>/src/$1',

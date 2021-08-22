@@ -6,23 +6,7 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
-    '^.+\\.(ts|tsx)$': [
-      '@swc/jest',
-      {
-        /** @type import('@swc/core/types').JscConfig */
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
-          },
-        },
-      },
-    ],
+    '^.+\\.(ts|tsx)$': '@swc/jest',
   },
   moduleNameMapper: {
     '~/(.*)$': '<rootDir>/$1',
