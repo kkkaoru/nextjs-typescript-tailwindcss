@@ -24,6 +24,7 @@
     "web-components": "workspace:*"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.84",
     "@swc/jest": "^0.2.2",
     "@testing-library/react": "^12.0.0",
     "@types/eslint": "^7.2.13",
