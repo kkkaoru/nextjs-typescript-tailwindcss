@@ -6,7 +6,8 @@
     "node": "^16.6.2"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm-run-all -p next-dev watch:jest",
+    "next-dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,6 +15,7 @@
     "prettier": "prettier --write --check .",
     "lint-staged": "lint-staged",
     "tsc": "tsc --noEmit",
+    "watch:jest": "jest --watch",
     "test": "jest"
   },
   "dependencies": {
@@ -51,6 +53,7 @@
     "lint-staged": "^11.1.2",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^8.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "typescript": "4.3.5"

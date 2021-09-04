@@ -17823,6 +17823,7 @@ resolve@^2.0.0-next.3:
     next: 11.1.0
     next-compose-plugins: ^2.2.1
     next-transpile-modules: ^8.0.0
+    npm-run-all: ^4.1.5
     postcss: ^8.3.6
     prettier: ^2.3.2
     react: 17.0.2
