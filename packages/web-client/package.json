@@ -6,7 +6,8 @@
     "node": "^16.6.2"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm-run-all -p next-dev watch:jest",
+    "next-dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,15 +15,18 @@
     "prettier": "prettier --write --check .",
     "lint-staged": "lint-staged",
     "tsc": "tsc --noEmit",
+    "watch:jest": "jest --watch",
     "test": "jest"
   },
   "dependencies": {
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.7",
+    "web-components": "workspace:*"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.84",
     "@swc/jest": "^0.2.2",
     "@testing-library/react": "^12.0.0",
     "@types/eslint": "^7.2.13",
@@ -47,6 +51,9 @@
     "eslint-plugin-tailwind": "^0.2.1",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^8.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "typescript": "4.3.5"

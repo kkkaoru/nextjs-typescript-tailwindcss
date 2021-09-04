@@ -8,6 +8,7 @@
     "is-ci": "^3.0.0"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.84",
     "husky": "^7.0.0"
   },
   "scripts": {

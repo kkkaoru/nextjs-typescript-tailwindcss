@@ -1,4 +1,9 @@
+const withPlugins = require('next-compose-plugins');
+const withTM = require('next-transpile-modules')(['web-components']);
+
 /** @type import('next/dist/server/config-shared').NextConfig*/
-module.exports = {
+const config = {
   reactStrictMode: true,
 };
+
+module.exports = withPlugins([withTM], config);

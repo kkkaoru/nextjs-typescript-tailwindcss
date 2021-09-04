@@ -7,8 +7,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:tailwind/recommended',
-    'next',
-    'next/core-web-vitals',
+    'plugin:@next/next/recommended',
+    'plugin:@next/next/core-web-vitals',
     'plugin:jest/recommended',
     'prettier',
   ],
@@ -20,9 +20,6 @@ module.exports = {
     'max-lines': 'error',
     'max-depth': 'error',
     'max-lines-per-function': 'error',
-  },
-  parserOptions: {
-    project: './tsconfig.json',
   },
   env: {
     browser: true,

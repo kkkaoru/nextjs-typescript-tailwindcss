@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import { Example } from '@/components/example';
+import Home from '@/pages/index';
 
-describe('example', () => {
+describe('Top page', () => {
   it('should be matched snapshot', () => {
-    const { asFragment } = render(< Example />, {});
+    const { asFragment } = render(<Home />);
     expect(asFragment()).toMatchSnapshot();
-  })
+  });
 });
