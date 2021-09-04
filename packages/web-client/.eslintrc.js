@@ -21,9 +21,6 @@ module.exports = {
     'max-depth': 'error',
     'max-lines-per-function': 'error',
   },
-  parserOptions: {
-    project: './tsconfig.json',
-  },
   env: {
     browser: true,
     node: true,
