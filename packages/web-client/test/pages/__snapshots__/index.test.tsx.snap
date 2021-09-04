@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Top page should be matched snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <main>
+      <div
+        class="flex flex-col items-center justify-center w-full py-10 font-bold text-9xl after:block after:w-full after:h-1 after:bg-red-100"
+      >
+        Example
+      </div>
+      <button
+        class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#333] bg-transparent shadow-md"
+        type="button"
+      >
+        Example button
+      </button>
+      <button
+        class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#fff] bg-[#1ea7fd]"
+        type="button"
+      >
+        Example primary button
+      </button>
+    </main>
+    <footer>
+      <a
+        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"
+              style="max-width: 100%; display: block; margin: 0px; padding: 0px;"
+            />
+          </div>
+          <noscript />
+          <img
+            alt="Vercel Logo"
+            data-nimg="true"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </a>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
