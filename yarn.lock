@@ -7703,6 +7703,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"enhanced-resolve@npm:^5.7.0":
+  version: 5.8.2
+  resolution: "enhanced-resolve@npm:5.8.2"
+  dependencies:
+    graceful-fs: ^4.2.4
+    tapable: ^2.2.0
+  checksum: 1af3f6bcb92e849f6c18d44c427cbdaecac4be61023f2008d2ef0f8a48c909bf13afa9a5c04f9d030f27d9a7e27e40c367caa22cd63d2a7eb5fdbab7579d1538
+  languageName: node
+  linkType: hard
+
 "enquirer@npm:^2.3.5, enquirer@npm:^2.3.6":
   version: 2.3.6
   resolution: "enquirer@npm:2.3.6"
@@ -12773,6 +12783,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"next-compose-plugins@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "next-compose-plugins@npm:2.2.1"
+  checksum: bb1376aad78e7a8d6514ebe01842ff4285871ac85b1cf475bee03ddc682426a462ba38659d84de0f9db2b53de1c884aa74969740c5b999adc43654b1371d6e78
+  languageName: node
+  linkType: hard
+
+"next-transpile-modules@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "next-transpile-modules@npm:8.0.0"
+  dependencies:
+    enhanced-resolve: ^5.7.0
+    escalade: ^3.1.1
+  checksum: 5088efa5033ac06296acd43ed5e9b0392c8189bfcfe29edc2e09cbf22f408b133bc301781bf20b723110b059c95660458f7698c4b719fdc3daeebe9e61245e32
+  languageName: node
+  linkType: hard
+
 "next@npm:11.1.0":
   version: 11.1.0
   resolution: "next@npm:11.1.0"
@@ -16528,6 +16555,13 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"tapable@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "tapable@npm:2.2.0"
+  checksum: f8ed725aedb3d777bf908ff06c02d1a2108667d3e64af87dd45354ac8de67e7e4fe1a567e215057fb1a2a5437b31d80cc5e5ddbb8327f7280afd4494967a9a93
+  languageName: node
+  linkType: hard
+
 "tar@npm:^6.0.2, tar@npm:^6.1.0":
   version: 6.1.1
   resolution: "tar@npm:6.1.1"
@@ -17655,16 +17689,19 @@ resolve@^2.0.0-next.3:
     jest: ^27.0.6
     lint-staged: ^11.1.2
     next: 11.1.0
+    next-compose-plugins: ^2.2.1
+    next-transpile-modules: ^8.0.0
     postcss: ^8.3.6
     prettier: ^2.3.2
     react: 17.0.2
     react-dom: 17.0.2
     tailwindcss: ^2.2.7
     typescript: 4.3.5
+    web-components: "workspace:*"
   languageName: unknown
   linkType: soft
 
-"web-components@workspace:packages/web-components":
+"web-components@workspace:*, web-components@workspace:packages/web-components":
   version: 0.0.0-use.local
   resolution: "web-components@workspace:packages/web-components"
   dependencies:
