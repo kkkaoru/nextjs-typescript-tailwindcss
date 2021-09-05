@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Example } from '@/components/atoms/example/Example';
+import { Example } from '@web-components/components/atoms/example/Example';
 
 describe('example', () => {
   it('should be matched snapshot', () => {

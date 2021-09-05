@@ -1,5 +1,10 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import { Button, buttonSizeClassNames, defaultClassNames, primaryClassNames } from '@/components/atoms/button/Button';
+import {
+  Button,
+  buttonSizeClassNames,
+  defaultClassNames,
+  primaryClassNames,
+} from '@web-components/components/atoms/button/Button';
 
 describe('Button', () => {
   it('should be matched snapshot', () => {

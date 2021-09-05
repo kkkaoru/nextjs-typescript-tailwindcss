@@ -11,7 +11,6 @@ module.exports = {
     '^.+\\.(ts|tsx)$': '@swc/jest',
   },
   moduleNameMapper: {
-    '~/(.*)$': '<rootDir>/src/$1',
-    '@/(.*)$': '<rootDir>/src/$1',
+    '@web-components/(.*)$': '<rootDir>/src/$1',
   },
 };

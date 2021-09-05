@@ -1,4 +1,4 @@
-name: Web-components jobs
+name: web/components jobs
 on:
   push:
     paths:
@@ -51,7 +51,7 @@ jobs:
       - name: Install
         run: yarn install
       - name: ESLint
-        run: yarn workspace web-components eslint
+        run: yarn workspace @web/components eslint
   formatter:
     name: Formatter
     needs: prepare-yarn-cache
@@ -74,7 +74,7 @@ jobs:
       - name: Install
         run: yarn install
       - name: Prettier
-        run: yarn workspace web-components prettier
+        run: yarn workspace @web/components prettier
   tsc:
     name: TypeScript compiler
     needs: prepare-yarn-cache
@@ -97,7 +97,7 @@ jobs:
       - name: Install
         run: yarn install
       - name: Compile
-        run: yarn workspace web-components tsc
+        run: yarn workspace @web/components tsc
   jest:
     name: Jest
     needs: prepare-yarn-cache
@@ -120,7 +120,7 @@ jobs:
       - name: Install
         run: yarn install
       - name: Jest
-        run: yarn workspace web-components test
+        run: yarn workspace @web/components test
   test:
     needs: ['lint', 'formatter', 'tsc', 'jest']
     runs-on: ubuntu-20.04

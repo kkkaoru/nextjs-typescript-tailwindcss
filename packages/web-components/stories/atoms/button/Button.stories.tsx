@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
-import { Button, Props } from '@/components/atoms/button/Button';
+import { Button, Props } from '@web-components/components/atoms/button/Button';
 
 export default {
   title: 'Example/Button',
