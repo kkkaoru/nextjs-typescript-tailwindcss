@@ -1,16 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
-import { Button, Props } from '@web-components/components/atoms/button/Button';
+import { DefaultButton, Props } from '@web-components/components/atoms/button/default';
 
 export default {
-  title: 'Example/Button',
-  component: Button,
+  title: 'button/DefaultButton',
+  component: DefaultButton,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as Meta;
 
-const Template: Story<Props> = (args) => <Button onClick={action('button-click')} {...args} />;
+const Template: Story<Props> = (args) => <DefaultButton onClick={action('button-click')} {...args} />;
 
 export const Primary = Template.bind({});
 

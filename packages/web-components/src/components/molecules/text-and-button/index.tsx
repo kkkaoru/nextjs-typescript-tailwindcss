@@ -1,11 +1,17 @@
-import { Button, Props } from '@web-components/components/atoms/button/Button';
-import { Example } from '@web-components/components/atoms/example/Example';
+import { DefaultButton, Props as ButtonProps } from '@web-components/components/atoms/button/default';
+import { TextWithUnderline } from '@web-components/components/atoms/text';
 
-export function TextAndButton(buttonProps: Props): JSX.Element {
+export type Props = {
+  textTitle: string;
+  buttonLabel: string;
+  buttonProps?: ButtonProps;
+};
+
+export function TextAndButton({ textTitle, buttonLabel, buttonProps }: Props): JSX.Element {
   return (
     <div>
-      <Example />
-      <Button {...buttonProps} />
+      <TextWithUnderline text={textTitle} />
+      <DefaultButton label={buttonLabel} {...buttonProps} />
     </div>
   );
 }
