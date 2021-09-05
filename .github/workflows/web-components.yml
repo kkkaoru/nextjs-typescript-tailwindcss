@@ -2,8 +2,8 @@ name: Web-components jobs
 on:
   push:
     paths:
-      - ".github/workflows/web-components.yml"
-      - "packages/web-components/**"
+      - '.github/workflows/web-components.yml'
+      - 'packages/web-components/**'
 jobs:
   prepare-yarn-cache:
     name: Prepare Cache
@@ -14,7 +14,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.6.2'
+          node-version: '14.17.5'
           cache: 'yarn'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -39,7 +39,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.6.2'
+          node-version: '14.17.5'
           cache: 'yarn'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -62,7 +62,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.6.2'
+          node-version: '14.17.5'
           cache: 'yarn'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -85,7 +85,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.6.2'
+          node-version: '14.17.5'
           cache: 'yarn'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -108,7 +108,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.6.2'
+          node-version: '14.17.5'
           cache: 'yarn'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -125,4 +125,4 @@ jobs:
     needs: ['lint', 'formatter', 'tsc', 'jest']
     runs-on: ubuntu-20.04
     steps:
-    - run: echo Done test jobs
+      - run: echo Done test jobs
