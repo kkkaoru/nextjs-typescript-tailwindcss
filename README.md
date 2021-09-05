@@ -1,10 +1,12 @@
 # nextjs-typescript-tailwindcss
 
 Monorepo with using yarn workspace
-## Directories
+## URLs
 
-```sh
-$ tree packages/ -L 1
-packages/
-└── [web-client](https://github.com/kkkaoru/nextjs-typescript-tailwindcss/tree/main/packages/web-client) Next.js Web Application
-```
+web-client
+
+https://nextjs-typescript-tailwindcss.vercel.app/
+
+web-components
+
+https://nextjs-typescript-tailwindcss-storybook.vercel.app/
