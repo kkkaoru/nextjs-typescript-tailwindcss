@@ -4,23 +4,45 @@ exports[`Top page should be matched snapshot 1`] = `
 <DocumentFragment>
   <div>
     <main>
-      <div
-        class="flex flex-col items-center justify-center w-full py-10 font-bold text-9xl after:block after:w-full after:h-1 after:bg-red-100"
-      >
-        Example
+      <div>
+        <h1>
+          <div
+            class="flex flex-col items-center justify-center w-full p-10 font-bold break-all text-7xl lg:text-9xl after:block after:w-full after:h-1 after:bg-red-100"
+          >
+            Example nextjs, typescript, tailwindcss
+          </div>
+        </h1>
+        <button
+          class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#333] bg-transparent shadow-md"
+          type="button"
+        >
+          Example normal button
+        </button>
+        <button
+          class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#fff] bg-[#1ea7fd]"
+          type="button"
+        >
+          Example primary button
+        </button>
       </div>
-      <button
-        class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#333] bg-transparent shadow-md"
-        type="button"
-      >
-        Example button
-      </button>
-      <button
-        class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#fff] bg-[#1ea7fd]"
-        type="button"
-      >
-        Example primary button
-      </button>
+      <div>
+        <h2>
+          Molecules Example
+        </h2>
+        <div>
+          <div
+            class="flex flex-col items-center justify-center w-full p-10 font-bold break-all text-7xl lg:text-9xl after:block after:w-full after:h-1 after:bg-red-100"
+          >
+            Molecules 
+          </div>
+          <button
+            class="font-sans font-bold border-0 rounded-[3em] cursor-pointer inline-block leading-none text-base py-[11px] px-[20px] text-[#fff] bg-[#1ea7fd]"
+            type="button"
+          >
+            Molecules button
+          </button>
+        </div>
+      </div>
     </main>
     <footer>
       <a

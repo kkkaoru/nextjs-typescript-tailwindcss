@@ -33,7 +33,7 @@ module.exports = {
     };
     config.resolve.alias = [
       {
-        find: '@/',
+        find: '@web-components/',
         replacement: `${__dirname}/../src/`,
       },
     ];

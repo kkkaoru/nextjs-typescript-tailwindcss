@@ -13,11 +13,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    // "rootDirs": [".", "../web-components"],
+    "baseUrl": "./",
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"],
-    },
+      "@web-components": ["../web-components/src/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

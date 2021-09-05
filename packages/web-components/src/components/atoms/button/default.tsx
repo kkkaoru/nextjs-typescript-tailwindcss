@@ -19,10 +19,7 @@ export const buttonSizeClassNames = new Map<ButtonSize, string>([
 export const defaultClassNames = 'text-[#333] bg-transparent shadow-md';
 export const primaryClassNames = 'text-[#fff] bg-[#1ea7fd]';
 
-/**
- * Primary UI component for user interaction
- */
-export const Button: React.VFC<Props> = ({
+export const DefaultButton: React.VFC<Props> = ({
   label,
   size = 'medium',
   primary = false,

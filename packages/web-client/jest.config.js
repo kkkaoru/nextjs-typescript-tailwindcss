@@ -11,5 +11,6 @@ module.exports = {
   moduleNameMapper: {
     '~/(.*)$': '<rootDir>/$1',
     '@/(.*)$': '<rootDir>/$1',
+    '@web-components/(.*)$': `${require('path').dirname(require.resolve('@web/components/package.json'))}/src/$1`,
   },
 };

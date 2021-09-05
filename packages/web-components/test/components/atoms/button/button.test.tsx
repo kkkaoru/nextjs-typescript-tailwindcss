@@ -1,29 +1,34 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import { Button, buttonSizeClassNames, defaultClassNames, primaryClassNames } from '@/components/atoms/button/Button';
+import {
+  DefaultButton,
+  buttonSizeClassNames,
+  defaultClassNames,
+  primaryClassNames,
+} from '@web-components/components/atoms/button/default';
 
 describe('Button', () => {
   it('should be matched snapshot', () => {
-    const { asFragment } = render(<Button label="button" />);
+    const { asFragment } = render(<DefaultButton label="button" />);
     expect(asFragment()).toMatchSnapshot();
   });
   it('should be included label text', () => {
-    const { getByText } = render(<Button label="Example Label Text" />);
+    const { getByText } = render(<DefaultButton label="Example Label Text" />);
     // expect(screen.getByText('Example')).toBeInTheDocument();
     expect(getByText('Example Label Text')).toBeInTheDocument();
   });
   it('should be called onClick', () => {
     const mockOnClickFunction = jest.fn();
-    const { getByText } = render(<Button label="Click" onClick={mockOnClickFunction} />);
+    const { getByText } = render(<DefaultButton label="Click" onClick={mockOnClickFunction} />);
     fireEvent.click(getByText('Click'));
     expect(mockOnClickFunction.mock.calls.length).toBe(1);
   });
   it('should be changed button size', () => {
     render(
       <>
-        <Button label="Default" />
-        <Button label="Small" size="small" />
-        <Button label="Medium" size="medium" />
-        <Button label="Large" size="large" />
+        <DefaultButton label="Default" />
+        <DefaultButton label="Small" size="small" />
+        <DefaultButton label="Medium" size="medium" />
+        <DefaultButton label="Large" size="large" />
       </>,
     );
     expect(screen.getByText('Default').className).toEqual(
@@ -42,9 +47,9 @@ describe('Button', () => {
   it('should be changed class names by primary', () => {
     render(
       <>
-        <Button label="Default" />
-        <Button label="Primary" primary />
-        <Button label="NotPrimary" primary={false} />
+        <DefaultButton label="Default" />
+        <DefaultButton label="Primary" primary />
+        <DefaultButton label="NotPrimary" primary={false} />
       </>,
     );
     expect(screen.getByText('Default').className).toEqual(expect.stringContaining(defaultClassNames));
@@ -54,8 +59,8 @@ describe('Button', () => {
   it('should be set background color', () => {
     render(
       <>
-        <Button label="Default" />
-        <Button label="SetBackgroundColor" backgroundColor="#dddddd" />
+        <DefaultButton label="Default" />
+        <DefaultButton label="SetBackgroundColor" backgroundColor="#dddddd" />
       </>,
     );
     expect(screen.getByText('Default')).toHaveStyle('background-color: ButtonFace');
@@ -63,7 +68,7 @@ describe('Button', () => {
   });
   it('should be set html button attributes', () => {
     const { getByTestId } = render(
-      <Button label="Attributes" type="button" role="button" data-testid="custom-attributes" />,
+      <DefaultButton label="Attributes" type="button" role="button" data-testid="custom-attributes" />,
     );
     const button = getByTestId('custom-attributes');
     expect(button).toHaveAttribute('type', 'button');

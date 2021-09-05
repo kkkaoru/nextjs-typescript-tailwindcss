@@ -1,4 +1,4 @@
-import { repeatingMessage } from '@/utils/example';
+import { repeatingMessage } from '@web-components/utils/example';
 
 describe('repeatingMessage', () => {
   it('should be repeating same message', () => {
