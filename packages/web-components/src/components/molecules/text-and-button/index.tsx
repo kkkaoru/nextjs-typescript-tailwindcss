@@ -4,7 +4,7 @@ import { TextWithUnderline } from '@web-components/components/atoms/text';
 export type Props = {
   textTitle: string;
   buttonLabel: string;
-  buttonProps?: ButtonProps;
+  buttonProps?: Omit<ButtonProps, 'label'>;
 };
 
 export function TextAndButton({ textTitle, buttonLabel, buttonProps }: Props): JSX.Element {
