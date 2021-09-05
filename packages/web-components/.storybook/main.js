@@ -25,10 +25,6 @@ module.exports = {
    * @returns {import('vite').ResolvedConfig}
    */
   async viteFinal(config) {
-    config.define = {
-      'process.env': {},
-      global: {},
-    };
     // ESbuild is not supported jsx automatic runtime.
     // https://github.com/evanw/esbuild/issues/334
     /** @type {import('vite').ESBuildOptions} */
