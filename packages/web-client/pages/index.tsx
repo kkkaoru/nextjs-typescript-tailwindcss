@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Example } from 'web-components/src/components/atoms/example/Example';
-import { Button } from 'web-components/src/components/atoms/button/Button';
+import { Example } from '@web/components/src/components/atoms/example/Example';
+import { Button } from '@web/components/src/components/atoms/button/Button';
+import { TextAndButton } from '@web/components/src/components/molecules/text-and-button';
 
 // eslint-disable-next-line max-lines-per-function
 export default function Home(): JSX.Element {
@@ -14,9 +15,17 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main>
-        <Example />
-        <Button label="Example button" />
-        <Button label="Example primary button" primary />
+        <div>
+          <h1>
+            <Example />
+          </h1>
+          <Button label="Example button" />
+          <Button label="Example primary button" primary />
+        </div>
+        <div>
+          <h2>Molecules Example</h2>
+          <TextAndButton label="Molecules" />
+        </div>
       </main>
 
       <footer>

@@ -1,4 +1,4 @@
-const componentsDir = require('path').dirname(require.resolve('web-components/package.json'));
+const componentsDir = require('path').dirname(require.resolve('@web/components/package.json'));
 
 /** @type import('@types/tailwindcss/tailwind-config').TailwindConfig */
 module.exports = {
